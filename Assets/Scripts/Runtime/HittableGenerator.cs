@@ -5,6 +5,7 @@ using UnityEngine;
 public class HittableGenerator : MonoBehaviour
 {
     public GameObject hittableObject;
+    public GameObject camera;
     public float xRange = 5f;
     public float yRange = 5f;
     public float zDistance = 5f;
@@ -22,7 +23,7 @@ public class HittableGenerator : MonoBehaviour
     }
     IEnumerator GenerateOverTime() {
         while(true) {
-            Instantiate(hittableObject, new Vector3(Random.RandomRange(-xRange, xRange), Random.RandomRange(-yRange, yRange), zDistance), Quaternion.identity);
+            Instantiate(hittableObject, camera.transform.position + new Vector3(Random.RandomRange(-xRange, xRange), Random.RandomRange(-yRange, yRange), zDistance), Quaternion.identity);
             yield return new WaitForSeconds(1f / frequency);
         }
     }
