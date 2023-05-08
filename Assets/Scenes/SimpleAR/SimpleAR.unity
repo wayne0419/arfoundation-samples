@@ -394,6 +394,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: bullet_impact_world
       objectReference: {fileID: 0}
+    - target: {fileID: 3618646137432500661, guid: b31de0ff08d7bba4994d566dff9d7968,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b31de0ff08d7bba4994d566dff9d7968, type: 3}
 --- !u!1 &590498023
