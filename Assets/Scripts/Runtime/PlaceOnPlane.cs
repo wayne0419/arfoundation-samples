@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.ARSubsystems;
 using System.Collections;
+using UnityEngine;
 
 namespace UnityEngine.XR.ARFoundation.Samples
 {
@@ -18,7 +19,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         [SerializeField]
         [Tooltip("Instantiates this prefab on a plane at the touch location.")]
         GameObject m_PlacedPrefab;
-
+        public GameObject m_PlacedPrefab_no_hole;
         /// <summary>
         /// The prefab to instantiate on touch.
         /// </summary>
@@ -65,8 +66,31 @@ namespace UnityEngine.XR.ARFoundation.Samples
                 // {
                 //     spawnedObject.transform.position = hitPose.position;
                 // }
-                m_PressedBegan = false;
             }
+
+            Ray ray = Camera.main.ScreenPointToRay(touchPosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Raycast hits are sorted by distance, so the first one
+                // will be the closest hit.
+                Instantiate(m_PlacedPrefab_no_hole, hit.point, Quaternion.LookRotation(hit.normal));
+                Hittable hittable = hit.transform.gameObject.GetComponent<Hittable>();
+                if (hittable != null){
+                    hittable.Hit();
+                }
+                // if (spawnedObject == null)
+                // {
+                //     spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+                // }
+                // else
+                // {
+                //     spawnedObject.transform.position = hitPose.position;
+                // }
+                
+            }
+
+            m_PressedBegan = false;
         }
 
         protected override void OnPressBegan(Vector3 position) => m_PressedBegan = true;
@@ -75,7 +99,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
         protected override void OnPressCancel() => m_Pressed = false;
 
         static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
-
         ARRaycastManager m_RaycastManager;
 
     }
