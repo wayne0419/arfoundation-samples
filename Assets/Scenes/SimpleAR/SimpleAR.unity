@@ -2052,9 +2052,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hittableObject: {fileID: 8836562283530601586, guid: 796935d423f2aa34fabcac21a41d9b65,
     type: 3}
-  xRange: 5
-  yRange: 5
-  zDistance: 5
+  xRange: 2
+  yRange: 2
+  zDistance: 2
   frequency: 1
 --- !u!4 &968298566
 Transform:
