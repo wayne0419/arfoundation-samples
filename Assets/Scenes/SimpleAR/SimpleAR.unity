@@ -2052,6 +2052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hittableObject: {fileID: 8836562283530601586, guid: 796935d423f2aa34fabcac21a41d9b65,
     type: 3}
+  camera: {fileID: 789308799}
   xRange: 2
   yRange: 2
   zDistance: 2
