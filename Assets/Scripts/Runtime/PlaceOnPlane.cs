@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.ARSubsystems;
+using System.Collections;
 
 namespace UnityEngine.XR.ARFoundation.Samples
 {
@@ -33,6 +34,7 @@ namespace UnityEngine.XR.ARFoundation.Samples
         public GameObject spawnedObject { get; private set; }
 
         bool m_Pressed;
+        bool m_PressedBegan;
 
         protected override void Awake()
         {
@@ -43,28 +45,31 @@ namespace UnityEngine.XR.ARFoundation.Samples
         void Update()
         {
 
-            if (Pointer.current == null || m_Pressed == false)
+            if (Pointer.current == null || m_PressedBegan == false)
                 return;
 
             var touchPosition = Pointer.current.position.ReadValue();
 
-            if (m_RaycastManager.Raycast(touchPosition, s_Hits, TrackableType.PlaneWithinPolygon))
+            if (m_RaycastManager.Raycast(touchPosition, s_Hits, TrackableType.PlaneWithinBounds))
             {
                 // Raycast hits are sorted by distance, so the first one
                 // will be the closest hit.
                 var hitPose = s_Hits[0].pose;
 
-                if (spawnedObject == null)
-                {
-                    spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
-                }
-                else
-                {
-                    spawnedObject.transform.position = hitPose.position;
-                }
+                Instantiate(m_PlacedPrefab, hitPose.position, Quaternion.LookRotation(hitPose.up));
+                // if (spawnedObject == null)
+                // {
+                //     spawnedObject = Instantiate(m_PlacedPrefab, hitPose.position, hitPose.rotation);
+                // }
+                // else
+                // {
+                //     spawnedObject.transform.position = hitPose.position;
+                // }
+                m_PressedBegan = false;
             }
         }
 
+        protected override void OnPressBegan(Vector3 position) => m_PressedBegan = true;
         protected override void OnPress(Vector3 position) => m_Pressed = true;
 
         protected override void OnPressCancel() => m_Pressed = false;
@@ -72,5 +77,6 @@ namespace UnityEngine.XR.ARFoundation.Samples
         static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
 
         ARRaycastManager m_RaycastManager;
+
     }
 }
