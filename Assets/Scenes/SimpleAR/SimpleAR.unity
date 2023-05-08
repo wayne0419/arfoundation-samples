@@ -2055,7 +2055,7 @@ MonoBehaviour:
   camera: {fileID: 789308799}
   xRange: 2
   yRange: 2
-  zDistance: 2
+  zDistance: 1
   frequency: 1
 --- !u!4 &968298566
 Transform:
