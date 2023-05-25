@@ -21,6 +21,17 @@ public class Paintable : MonoBehaviour {
     public Renderer getRenderer() => rend;
 
     void Start() {
+        Init();
+    }
+
+    void OnDisable(){
+        maskRenderTexture.Release();
+        uvIslandsRenderTexture.Release();
+        extendIslandsRenderTexture.Release();
+        supportTexture.Release();
+    }
+
+    public void Init() {
         maskRenderTexture = new RenderTexture(TEXTURE_SIZE, TEXTURE_SIZE, 0);
         maskRenderTexture.filterMode = FilterMode.Bilinear;
 
@@ -37,12 +48,5 @@ public class Paintable : MonoBehaviour {
         rend.material.SetTexture(maskTextureID, extendIslandsRenderTexture);
 
         PaintManager.instance.initTextures(this);
-    }
-
-    void OnDisable(){
-        maskRenderTexture.Release();
-        uvIslandsRenderTexture.Release();
-        extendIslandsRenderTexture.Release();
-        supportTexture.Release();
     }
 }

@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 192875424}
   - component: {fileID: 192875423}
   - component: {fileID: 192875422}
+  - component: {fileID: 192875426}
   m_Layer: 5
   m_Name: Debug Button
   m_TagString: Untagged
@@ -267,6 +268,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 192875426}
+        m_TargetAssemblyTypeName: PaintableVisualizer, Assembly-CSharp
+        m_MethodName: Toggle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &192875424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +318,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 192875420}
   m_CullTransparentMesh: 0
+--- !u!114 &192875426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192875420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8bff1279f59a644391db4ad66effb52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintablesParent: {fileID: 1622037071}
 --- !u!114 &427002219 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3811591508773167256, guid: 90290c13d4a3d46eea32be3d6a1a14c4,
@@ -2256,7 +2282,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb668e822fd59824eacf79ab811891a1, type: 2}
+  - {fileID: 2100000, guid: 0f3a2d76241730d4dbcd8c2c723f89df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2295,7 +2321,7 @@ Transform:
   m_GameObject: {fileID: 1030543370}
   m_LocalRotation: {x: -0.7273793, y: -0, z: -0, w: 0.6862357}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.18, y: 0.17999999, z: 0.17999999}
+  m_LocalScale: {x: 0.18, y: 0.17999996, z: 0.17999996}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1622037072}
@@ -3654,6 +3680,7 @@ GameObject:
   - component: {fileID: 1608133454}
   - component: {fileID: 1608133453}
   - component: {fileID: 1608133452}
+  - component: {fileID: 1608133455}
   m_Layer: 5
   m_Name: Reset Button
   m_TagString: Untagged
@@ -3738,6 +3765,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1608133455}
+        m_TargetAssemblyTypeName: PaintCleaner, Assembly-CSharp
+        m_MethodName: Clean
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1608133453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3776,6 +3815,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608133450}
   m_CullTransparentMesh: 0
+--- !u!114 &1608133455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608133450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9839d7e7c50584989ea454eb8a97e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paintablesParent: {fileID: 1622037071}
 --- !u!1 &1622037071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3865,7 +3917,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb668e822fd59824eacf79ab811891a1, type: 2}
+  - {fileID: 2100000, guid: 0f3a2d76241730d4dbcd8c2c723f89df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3903,8 +3955,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669530983}
   m_LocalRotation: {x: -0.7273793, y: -0, z: -0, w: 0.6862357}
-  m_LocalPosition: {x: 1.84, y: -1.87, z: 0.11000013}
-  m_LocalScale: {x: 0.18, y: 0.17999999, z: 0.17999999}
+  m_LocalPosition: {x: 1.84, y: -1.87, z: 0.11000051}
+  m_LocalScale: {x: 0.18, y: 0.17999996, z: 0.17999996}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1622037072}
@@ -4245,7 +4297,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb668e822fd59824eacf79ab811891a1, type: 2}
+  - {fileID: 2100000, guid: 0f3a2d76241730d4dbcd8c2c723f89df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4283,8 +4335,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887791746}
   m_LocalRotation: {x: -0.7273793, y: -0, z: -0, w: 0.6862357}
-  m_LocalPosition: {x: 0, y: -1.8299999, z: 0.11000013}
-  m_LocalScale: {x: 0.18, y: 0.17999999, z: 0.17999999}
+  m_LocalPosition: {x: 0, y: -1.8299999, z: 0.11000051}
+  m_LocalScale: {x: 0.18, y: 0.17999996, z: 0.17999996}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1622037072}
@@ -4357,7 +4409,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb668e822fd59824eacf79ab811891a1, type: 2}
+  - {fileID: 2100000, guid: 0f3a2d76241730d4dbcd8c2c723f89df, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4395,8 +4447,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2115484848}
   m_LocalRotation: {x: -0.7273793, y: -0, z: -0, w: 0.6862357}
-  m_LocalPosition: {x: 1.841, y: -0.027999997, z: 0.0050001144}
-  m_LocalScale: {x: 0.18, y: 0.17999999, z: 0.17999999}
+  m_LocalPosition: {x: 1.8410001, y: -0.027999934, z: 0.0049997196}
+  m_LocalScale: {x: 0.18, y: 0.17999996, z: 0.17999996}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1622037072}
