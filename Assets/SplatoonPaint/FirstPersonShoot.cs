@@ -25,12 +25,12 @@ public class FirstPersonShoot : MonoBehaviour
             
             paintParticles.transform.position = muzzle.position;
             paintParticles.transform.LookAt(muzzle.position + ray.direction);
-
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit, 100.0f)){
-                Debug.DrawRay(muzzle.position, hit.point - muzzle.position, Color.red);
+            Debug.DrawRay(muzzle.position, ray.direction, Color.red);
+            // RaycastHit hit;
+            // if (Physics.Raycast(ray, out hit, 100.0f)){
+            //     Debug.DrawRay(muzzle.position, hit.point - muzzle.position, Color.red);
                 
-            }
+            // }
             if (!paintParticles.isEmitting)
                 paintParticles.Play();
         }

@@ -5183,6 +5183,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Visual Particle
       objectReference: {fileID: 0}
+    - target: {fileID: 206677742676367107, guid: 81b281f7075d9ce42a763c577136a3f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81b281f7075d9ce42a763c577136a3f1, type: 3}
 --- !u!1 &1091482612
